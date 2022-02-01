@@ -546,7 +546,9 @@
 							"dataflow": {
 								"referenceName": "dataflow1",
 								"type": "DataFlowReference",
-								"parameters": {},
+								"parameters": {
+									"parameter1": "\"\""
+								},
 								"datasetParameters": {
 									"source1": {},
 									"sink1": {}
