@@ -1,0 +1,32 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText3",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Rank1"
+				}
+			],
+			"script": "parameters{\n\tparameter1 as string (\"\")\n}\nsource(output(\n\t\tID as string,\n\t\t{Credit Given} as string,\n\t\tGender as string,\n\t\tEducation as string,\n\t\t{Marital Status} as string,\n\t\tAge as string,\n\t\t{Pay Stat M1} as string,\n\t\t{Bill Amt M1} as string,\n\t\t{Amt Paid M1} as string,\n\t\t{Pay Stat M2} as string,\n\t\t{Bill Amt M2} as string,\n\t\t{Amt Paid M2} as string,\n\t\t{Pay Stat M3} as string,\n\t\t{Bill Amt M3} as string,\n\t\t{Amt Paid M3} as string,\n\t\t{Default Next Month} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 rank(asc({Credit Given}, true),\n\toutput({Credit Given} as long)) ~> Rank1\nRank1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}
