@@ -276,7 +276,10 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"parameters": {
+							"parameter1": "\"\""
+						}
 					},
 					"compute": {
 						"coreCount": 8,
