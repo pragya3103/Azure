@@ -87,8 +87,18 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "tables",
-									"type": "DatasetReference"
+									"referenceName": "ListTables",
+									"type": "DatasetReference",
+									"parameters": {
+										"TableName": {
+											"value": "@item().table_name",
+											"type": "Expression"
+										},
+										"SchemaName": {
+											"value": "@item().table_schema",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
