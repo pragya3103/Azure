@@ -1,0 +1,9 @@
+{
+	"name": "lookuptrial",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "86073e00-2396-4f7c-ba87-a8632f6ff3c2",
+		"tenantId": "49f0aa8b-d5a2-4408-a7b4-6a926559bc39"
+	}
+}
